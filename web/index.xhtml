@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title> ~PV2017TP7~ </title>
+    </h:head>
+    <h:body>
+        <p:panel id="pnlDistancia"
+                 header="Calculo de Distancia: "
+                 style="width: 400px"
+                 footer="Escuela de Minas - PV " >
+            <h:form id="frmDistancia" >
+                <h:panelGrid id="tblDistancia" columns="4" >
+                    <p:outputLabel id="lblA1" value="Punto A(" />
+                    <p:inputText id="txtA1X" value="#{distanciaFormBean.x1}" size="3" />
+                    <p:inputText id="txtA1Y" value="#{distanciaFormBean.y1}" size="3" />
+                    <p:outputLabel id="lblA2" value=")" />
+                    
+                    <p:outputLabel id="lblB1" value="Punto B(" />
+                    <p:inputText id="txtB1X" value="#{distanciaFormBean.x2}" size="3" />
+                    <p:inputText id="txtB1Y" value="#{distanciaFormBean.y2}" size="3" />
+                    <p:outputLabel id="lblB2" value=")" />
+                    
+                    <p:commandButton id="btnCalcular" value="Calcular: " update="lblValorDistancia"
+                                     action="#{distanciaFormBean.asignarValor()}"/>
+                    <p:outputLabel id="lblValorDistancia" value="#{distanciaFormBean.d}" />
+                </h:panelGrid>
+            </h:form>
+        </p:panel>
+        
+        <p:panel id="pnlRectangulo"
+                 header="Rectangulo: "
+                 style="width: 400px"
+                 footer="Escuela de Minas - PV ">
+            <h:form id="frmRectangulo" >
+                    <p:outputLabel id="lblPuntoA" value="PuntoA: (" />
+                    <p:inputText id="txtA1X" value="#{rectanguloFormBean.x1}" size="3" />
+                    <p:inputText id="txtA1Y" value="#{rectanguloFormBean.y1}" size="3" />
+                    <p:outputLabel id="lblA2" value=")" />
+                <h:panelGrid id="AlturayBase" columns="2">
+                    <p:outputLabel id="lblAltura" value="Altura: " />
+                    <p:inputText id="txtAltura" value="#{rectanguloFormBean.altura}" size="3" /> 
+                    
+                    <p:outputLabel id ="lblBase" value="Base: " />
+                    <p:inputText id="txtBase" value="#{rectanguloFormBean.base}" size="3" />
+                </h:panelGrid>
+                    <p:commandButton id="btnCalcular" value="Calcular: " action="#{rectanguloFormBean.calcularOtrosPuntos()}" update="Puntos"/>
+                    <h:panelGrid id="Puntos" columns="4" >
+                        <p:outputLabel id="lblPO" value="PuntoA:(" />
+                        <p:outputLabel id="txtPOX" value="#{rectanguloFormBean.unRectangulo.unPuntoOrigen.x}" />
+                        <p:outputLabel id="txtPOY" value="#{rectanguloFormBean.unRectangulo.unPuntoOrigen.y}" />
+                        <p:outputLabel id="lblPO2" value=")" />
+                        
+                        <p:outputLabel id="lblB1" value="PuntoB:(" />
+                        <p:outputLabel id="txtB1X" value="#{rectanguloFormBean.unRectangulo.unPuntoB.x}" />
+                        <p:outputLabel id="txtB1Y" value="#{rectanguloFormBean.unRectangulo.unPuntoB.y}" />
+                        <p:outputLabel id="lblB2" value=")" />
+                        
+                        <p:outputLabel id="lblC1" value="PuntoC:(" />
+                        <p:outputLabel id="txtC1X" value="#{rectanguloFormBean.unRectangulo.unPuntoC.x}" />
+                        <p:outputLabel id="txtC1Y" value="#{rectanguloFormBean.unRectangulo.unPuntoC.y}" />
+                        <p:outputLabel id="lblC2" value=")" />
+                        
+                        <p:outputLabel id="lblD1" value="PuntoD:(" />
+                        <p:outputLabel id="txtD1X" value="#{rectanguloFormBean.unRectangulo.unPuntoD.x}" />
+                        <p:outputLabel id="txtD1Y" value="#{rectanguloFormBean.unRectangulo.unPuntoD.y}" />
+                        <p:outputLabel id="lblD2" value=")" />
+                        
+                        <h:panelGrid id="SupyPer" columns="3" >
+                            
+                            <p:commandButton id="btnCalcularS" value="Calcular" action="#{rectanguloFormBean.calcularSuperficie()}" update="vSup"/>
+                            <p:outputLabel id="Sup" value="Superficie="/>
+                         
+                            <p:outputLabel id="vSup" value="#{rectanguloFormBean.superficie}"/>
+                            
+                            <p:commandButton id="btnCalcularP" value="Calcular" action="#{rectanguloFormBean.calcularPerimetro()}" update="vPer"/>
+                            <p:outputLabel id="Per" value="Perimetro="/>
+                            
+                            <p:outputLabel id="vPer" value="#{rectanguloFormBean.perimetro}"/>
+                        </h:panelGrid>
+                    </h:panelGrid>
+            </h:form>
+        </p:panel>
+    </h:body>
+</html>
+
