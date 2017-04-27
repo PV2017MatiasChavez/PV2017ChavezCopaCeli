@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title> ~Tipo número~ </title>
+    </h:head>
+    <body>
+        <p:panel id="pnlNumeros"
+                 header="Tipo de número"
+                 style="width: 280px"
+                 footer="Escuela de Minas - PV 2017" >
+            <h:form id="frmPrimos" >
+                <h:panelGrid id="tblPuntos" columns="5" >
+                    <p:outputLabel id="lblA1" value="Puntos(" />
+                    <p:inputText id="txtA1X" value="#{numeroFormBean.n1}" size="3" />
+                    <p:outputLabel id="c1" value="," />
+                    <p:inputText id="txtA1Y" value="#{numeroFormBean.n2}" size="3" />
+                    <p:outputLabel id="lblA2" value=")" />
+                </h:panelGrid>
+                <p:panelGrid id="tblPrimos" columns="2" >
+                    <p:outputLabel id="lblP1" value="Primos:" />
+                    <p:inputText id="txtP1X" value="#{numeroFormBean.primos}" size="3" />
+                    <p:outputLabel id="lblP2" value="No Primos:" />
+                    <p:inputText id="txtP2X" value="#{numeroFormBean.noprimos}" size="3" />
+                    <p:outputLabel id="lblPar" value="Pares:" />
+                    <p:inputText id="txtParX" value="#{numeroFormBean.pares}" size="3" />
+                    <p:outputLabel id="lblImpar" value="Impares:" />
+                    <p:inputText id="txtImparX" value="#{numeroFormBean.impares}" size="3" />
+                </p:panelGrid>
+                <p:commandButton id="boton" value="Cacular" action="#{numeroFormBean.tipoNumero()}" 
+                                     update="tblPrimos"/>
+            </h:form>
+        </p:panel>
+        <h:form>
+        <p:menu style="width: 65px">
+            <p:menuitem value="Volver" url="./faces/index.xhtml" style="width: 55px"/>
+        </p:menu>
+        </h:form>
+    </body>
+</html>
