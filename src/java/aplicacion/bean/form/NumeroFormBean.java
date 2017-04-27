@@ -14,6 +14,7 @@ import javax.faces.bean.ViewScoped;
  */
 @ManagedBean
 @ViewScoped
+
 public class NumeroFormBean {
 private int n1=0,n2=0, primos = 0;
 private int noprimos=0;

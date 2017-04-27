@@ -17,6 +17,7 @@ import javax.faces.bean.ViewScoped;
  */
 @ManagedBean
 @ViewScoped
+
 public class DistanciaFormBean implements Serializable {
 private double x1,x2,y1,y2,d;
 

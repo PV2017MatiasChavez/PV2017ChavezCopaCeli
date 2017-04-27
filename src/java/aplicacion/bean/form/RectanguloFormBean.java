@@ -17,6 +17,7 @@ import javax.faces.bean.ViewScoped;
  */
 @ManagedBean
 @ViewScoped
+
 public class RectanguloFormBean {
     private double x1;
     private double y1;
